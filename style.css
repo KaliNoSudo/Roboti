@@ -150,16 +150,11 @@ h1 {
 @keyframes slideUp {
     0% {
         transform: translateY(300px);
-        opacity: 0;
-        visibility: hidden
     }
-    1% {
-        transform: translateY(300px);
-        opacity: 1;
-    }
+
     100% {
         transform: translateY(0px);
-        opacity: 1;
+
         visibility: visible;
     }
 }
@@ -190,6 +185,10 @@ h1 {
     100% {
         transform: translateX(0);
     }
-
 }
+.group1 {
+    animation: slideUp 5s;
+    visibility: hidden;
+}
+
 
