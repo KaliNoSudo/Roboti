@@ -85,7 +85,6 @@ p {
     transform: translateY(0); /* Remove unnecessary transformation */
     animation: slideUp 0.2s ease-in-out forwards 0.8s;
     text-align: center;
-    visibility: hidden
 }
 
 .btns {
@@ -133,9 +132,7 @@ h1 {
     align-items: center;
     color: var(--contrast-color);
     margin-bottom: 30px;
-    transform: translateY(100px);
     animation: slideUp 0.3s ease forwards .5s;
-    visibility: hidden
 }
 
 @keyframes slideIn {
@@ -188,7 +185,6 @@ h1 {
 }
 .group1 {
     animation: slideUp 5s;
-    visibility: hidden;
 }
 
 
