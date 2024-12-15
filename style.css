@@ -1,0 +1,36 @@
+html {
+  color: rgb(7, 5, 2);
+  text-decoration: none;
+  font-family: fantasy;
+  font-size: 30px;
+  text-shadow: 1px 1px 1px rgb(114, 95, 95), 2px 2px 1px rgb(99, 39, 39);
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
+  text-align: center; /* Center the list items */
+  margin-top: 10px;
+}
+
+li {
+  display: inline-block;
+  margin-right: 20px; /* Space between list items */
+}
+
+a {
+  color: rgb(192, 169, 139);
+  text-decoration: none; /* Remove underline, male kolko mrazq default underline */
+  font-size: 18px;
+  align-items: center;
+}
+:root { /* Ne sum na 100 pro siguren kak bachka ama e neshto kato vault, posle ako callnesh --secondary-color ti go dava, i at the same time mai e document wide changes, vse edno all */
+  --secondary-color: #151226;
+  --contrast-color: #BF307F;
+}
+body {
+  background-color: var(--secondary-color); /* Using the defined secondary color */
+}
+#image {
+ size: 500dvh;
+}
