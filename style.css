@@ -1,10 +1,15 @@
 html {
-  color: rgb(7, 5, 2);
+  color: #BF307F;
   text-decoration: none;
   font-family: fantasy;
   font-size: 30px;
-  text-shadow: 1px 1px 1px rgb(114, 95, 95), 2px 2px 1px rgb(99, 39, 39);
   scroll-behavior: smooth;
+}
+h1{
+  text-align: center;
+}
+p{
+  text-align: center;
 }
 ul {
   list-style-type: none; /* Remove bullets */
@@ -31,6 +36,25 @@ a {
 body {
   background-color: var(--secondary-color); /* Using the defined secondary color */
 }
-#image {
- size: 500dvh;
+.insideimage {
+ width: 100%;
+ height: auto;
+}
+.buttonstyle{
+  background: transparent;
+  margin: 20px;
+  border: 1px solid var(--contrast-color);
+  border-radius: 70px; /*Rounded borders basically*/
+  padding: 8px 12px;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  outline: none;
+  color: #BF307F; /*Pak vadish ot root*/
+  font-size: 16px;
+}
+.buttoncont{ /*basically pravish conteiner, flex display e kato default layout i posle kazvash v tozi layout budi centered, justify e vertical allign horizontal, idk why, do explore further*/
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
