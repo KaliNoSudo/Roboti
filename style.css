@@ -1,16 +1,31 @@
+:root {
+  --secondary-color: #151226;
+  --contrast-color: #BF307F;
+}
+
 html {
-  color: #BF307F;
+  color: var(--contrast-color);
   text-decoration: none;
-  font-family: fantasy;
-  font-size: 30px;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
   scroll-behavior: smooth;
 }
-h1{
+
+body {
+  background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
   text-align: center;
 }
-p{
-  text-align: center;
-}
+
 ul {
   list-style-type: none; /* Remove bullets */
   padding: 0;
@@ -25,36 +40,68 @@ li {
 
 a {
   color: rgb(192, 169, 139);
-  text-decoration: none; /* Remove underline, male kolko mrazq default underline */
+  text-decoration: none; /* Remove underline */
   font-size: 18px;
-  align-items: center;
 }
-:root { /* Ne sum na 100 pro siguren kak bachka ama e neshto kato vault, posle ako callnesh --secondary-color ti go dava, i at the same time mai e document wide changes, vse edno all */
-  --secondary-color: #151226;
-  --contrast-color: #BF307F;
-}
-body {
-  background-color: var(--secondary-color); /* Using the defined secondary color */
-}
-.insideimage {
- width: 100%;
- height: auto;
-}
-.buttonstyle{
+
+.buttonstyle {
   background: transparent;
   margin: 20px;
   border: 1px solid var(--contrast-color);
-  border-radius: 70px; /*Rounded borders basically*/
+  border-radius: 70px; /* Rounded borders */
   padding: 8px 12px;
   position: relative;
   align-self: center;
   align-items: center;
   outline: none;
-  color: #BF307F; /*Pak vadish ot root*/
+  color: var(--contrast-color);
   font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
 }
-.buttoncont{ /*basically pravish conteiner, flex display e kato default layout i posle kazvash v tozi layout budi centered, justify e vertical allign horizontal, idk why, do explore further*/
+
+.buttonstyle:hover {
+  background-color: var(--contrast-color);
+  color: white;
+}
+
+.buttoncont {
   align-items: center;
   justify-content: center;
   display: flex;
+}
+
+/* New styles for the product slider */
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px; /* Added padding to the slider */
+  /* Removed background color for the slider */
+}
+
+.product-item {
+  min-width: 300px;
+  margin: 20px; /* Increased margin for better spacing */
+  scroll-snap-align: start;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  transition: transform 0.2s, box-shadow 0.2s; /* Added transition for box-shadow */
+  background-color: var(--secondary-color); /* Set background color for product items */
+  color: var(--contrast-color); /* Set text color for product items */
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.insideimage {
+  width: 100%;
+  height: auto;
 }

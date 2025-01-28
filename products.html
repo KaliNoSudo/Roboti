@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Products</title>
       <link rel="stylesheet" href="style.css">
+      <style>
+         .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+         }
+         .product-item {
+            min-width: 300px;
+            margin: 10px;
+            scroll-snap-align: start;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            transition: transform 0.2s;
+         }
+         .product-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         }
+         .product-image {
+            width: 100%;
+            height: auto;
+         }
+         .reviews {
+            margin-top: 10px;
+            font-style: italic;
+         }
+      </style>
    </head>
-  <body>
-    <h1>Our Products</h1>
-      <p>We are an amazing company.</p>
-      <div class="buttoncont">
-        <a href="main.html"><button class="buttonstyle">Go back</button></a>
+   <body>
+      <h1>Our Products</h1>
+      <div class="slider">
+         <div class="product-item">
+            <img src="https://www.markhorlive.com/cdn/shop/products/ezgif-2-1210d05c2a-removebg-preview_720x.png?v=1649750442" alt="Product 1" class="product-image"/>
+            <h2>Product 1</h2>
+            <p>Description of Product 1. This is a great product that offers many features.</p>
+            <div class="reviews">"Amazing product! Highly recommend." - Customer A</div>
+         </div>
+         <div class="product-item">
+            <img src="https://hespokestyle.com/wp-content/uploads/2023/09/HSS-Shop-Photos-Formal-Wear-Mannequin-514-Edit-100x120@2x.png" alt="Product 2" class="product-image"/>
+            <h2>Product 2</h2>
+            <p>Description of Product 2. This product is known for its quality and durability.</p>
+            <div class="reviews">"Best purchase I've made this year!" - Customer B</div>
+         </div>
+         <div class="product-item">
+            <img src="https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/1034638/without_model_small.png" alt="Product 3" class="product-image"/>
+            <h2>Product 3</h2>
+            <p>Description of Product 3. A popular choice among customers for its value.</p>
+            <div class="reviews">"Value for money, will buy again." - Customer C</div>
+         </div>
+         <div class="product-item">
+            <img src="https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/1009216/without_model_small.png" alt="Product 4" class="product-image"/>
+            <h2>Product 4</h2>
+            <p>Description of Product 4. This product stands out for its innovative design.</p>
+            <div class="reviews">"Stylish and functional!" - Customer D</div>
+         </div>
+         <div class="product-item">
+            <img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embellished-leather-trucker-jacket--HSL85WBQV810_PM2_Front%20view.jpg" alt="Product 5" class="product-image"/>
+            <h2>Product 5</h2>
+            <p>Description of Product 5. Highly recommended for its performance and style.</p>
+            <div class="reviews">"Exceeded my expectations!" - Customer E</div>
+         </div>
       </div>
-  </body>
+      <div class="buttoncont">
+         <a href="main.html"><button class="buttonstyle">Go back</button></a>
+      </div>
+   </body>
 </html>
