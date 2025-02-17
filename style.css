@@ -4,7 +4,6 @@
 }
 
 html {
-  color: var(--contrast-color);
   text-decoration: none;
   font-family: 'Arial', sans-serif;
   font-size: 18px;
@@ -12,7 +11,6 @@ html {
 }
 
 body {
-  background-color: var(--secondary-color);
   margin: 0;
   padding: 0;
 }
@@ -27,6 +25,7 @@ p {
 }
 
 ul {
+  position: absolute;
   list-style-type: none; /* Remove bullets */
   padding: 0;
   text-align: center; /* Center the list items */
@@ -103,5 +102,28 @@ a {
 
 .insideimage {
   width: 100%;
-  height: auto;
+  image-resolution: 1080px;
+}
+
+nav {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  padding: 20px;
+  background-color: rgba(21, 18, 38, 0.7);
+  
+}
+
+
+footer {
+  position:fixed;
+  background-color: red;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
 }
