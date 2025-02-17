@@ -5,40 +5,59 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Products</title>
       <link rel="stylesheet" href="style.css">
+      <script>
+        function addToCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + ' added to cart!');
+        }
+      </script>
    </head>
    <body>
       <h1>Our Products</h1>
+
       <div class="slider">
          <div class="product-item">
             <img src="https://www.markhorlive.com/cdn/shop/products/ezgif-2-1210d05c2a-removebg-preview_720x.png?v=1649750442" alt="Product 1" class="product-image"/>
             <h2>Product 1</h2>
             <p>Description of Product 1. This is a great product that offers many features.</p>
             <div class="reviews">"Amazing product! Highly recommend." - Customer A</div>
+            <button onclick="addToCart('Product 1')" class="add-to-cart">Add to Cart</button>
          </div>
+
          <div class="product-item">
             <img src="https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/14451/without_model_small.png" alt="Product 2" class="product-image"/>
             <h2>Product 2</h2>
             <p>Description of Product 2. This product is known for its quality and durability.</p>
             <div class="reviews">"Best purchase I've made this year!" - Customer B</div>
+            <button onclick="addToCart('Product 2')" class="add-to-cart">Add to Cart</button>
          </div>
+
          <div class="product-item">
             <img src="https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/1034638/without_model_small.png" alt="Product 3" class="product-image"/>
             <h2>Product 3</h2>
             <p>Description of Product 3. A popular choice among customers for its value.</p>
             <div class="reviews">"Value for money, will buy again." - Customer C</div>
+            <button onclick="addToCart('Product 3')" class="add-to-cart">Add to Cart</button>
          </div>
+
          <div class="product-item">
             <img src="https://d1fufvy4xao6k9.cloudfront.net/feed/img/man_jacket/1009216/without_model_small.png" alt="Product 4" class="product-image"/>
             <h2>Product 4</h2>
             <p>Description of Product 4. This product stands out for its innovative design.</p>
             <div class="reviews">"Stylish and functional!" - Customer D</div>
+            <button onclick="addToCart('Product 4')" class="add-to-cart">Add to Cart</button>
          </div>
+
          <div class="product-item">
             <img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-embellished-leather-trucker-jacket--HSL85WBQV810_PM2_Front%20view.jpg" alt="Product 5" class="product-image"/>
             <h2>Product 5</h2>
             <p>Description of Product 5. Highly recommended for its performance and style.</p>
             <div class="reviews">"Exceeded my expectations!" - Customer E</div>
+            <button onclick="addToCart('Product 5')" class="add-to-cart">Add to Cart</button>
          </div>
+
       </div>
       <div class="buttoncont">
          <a href="main.html"><button class="buttonstyle">Go back</button></a>
