@@ -101,40 +101,47 @@ a {
 }
 
 .insideimage {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   image-resolution: 1080px;
+  background-color: rgba(0, 29, 147, 0.3);
 }
 
 nav {
   margin: 0 auto;
   padding: 0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   position: fixed;
   left: 0px;
   right: 0px;
   padding: 20px;
   background-color: rgba(21, 18, 38, 0.7);
+  z-index: 3000;
   
 }
 
-/* TAKA UJASNO E AMA GRADIENTA POD NAVBARA E OTDELEN DIV ZASHTOTO NQMA DA STANE FADE OUT GRADIENT
-BOTTOM BORDER A SAMO TAKA GO NAPRAVIHME NE GLEDAI CHE E NAI NEEFIKASNIQ METOD, NO OT GLEDNA TOCHKA 
-NA END USERA NE PRECHI I TOI NE VIJDA MIZERIITE TUK */
 footer {
   position:fixed;
   background-color: red;
   padding: 0;
   margin: 0;
-  z-index: 3;
 }
 
-.test {
+/* TAKA UJASNO E AMA GRADIENTA POD NAVBARA E OTDELEN DIV ZASHTOTO NQMA DA STANE FADE OUT GRADIENT
+BOTTOM BORDER A SAMO TAKA GO NAPRAVIHME NE GLEDAI CHE E NAI NEEFIKASNIQ METOD, NO OT GLEDNA TOCHKA 
+NA END USERA NE PRECHI I TOI NE VIJDA MIZERIITE TUK */
+
+.gradient {
   display:flex;
   width: 100%;
   padding: 20px;
   position: fixed;
   top: 40px;
   background-image: linear-gradient(rgba(21, 18, 38, 0.7), rgba(21, 18, 38, 0.0));  
+}
+
+.txt-hmpg {
+  position: absolute;
+  text-align: center;
 }
