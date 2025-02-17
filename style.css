@@ -127,3 +127,12 @@ footer {
   margin: 0;
   z-index: 3;
 }
+
+.test {
+  display:flex;
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 40px;
+  background-image: linear-gradient(rgba(21, 18, 38, 0.7), rgba(21, 18, 38, 0.0));  
+}
