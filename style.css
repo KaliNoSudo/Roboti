@@ -86,7 +86,12 @@ p {
 }
 
 .cartimg {
-  width: 40px;
+  width: 35px;
+  transition: 0.3s;
+}
+.cartimg:hover {
+  transform: scale(1.30);
+  filter:invert(0.3);
 }
 
 nav .logo {
@@ -125,6 +130,7 @@ nav ul li a {
   font-size: 160px;
   color: #fff;
   font-weight: 600;
+  margin: 0;
 }
 
 .content a {
