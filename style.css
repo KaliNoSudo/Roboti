@@ -14,33 +14,8 @@ body {
   margin: 0;
   padding: 0;
 }
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-}
-
 p {
   text-align: center;
-}
-
-ul {
-  position: absolute;
-  list-style-type: none; /* Remove bullets */
-  padding: 0;
-  text-align: center; /* Center the list items */
-  margin-top: 10px;
-}
-
-li {
-  display: inline-block;
-  margin-right: 20px; /* Space between list items */
-}
-
-a {
-  color: rgb(192, 169, 139);
-  text-decoration: none; /* Remove underline */
-  font-size: 18px;
 }
 
 .buttonstyle {
@@ -99,39 +74,6 @@ a {
   width: 100%;
   height: auto;
 }
-
-.insideimage {
-  width: 100vw;
-  height: 100vh;
-  image-resolution: 1080px;
-  background-color: rgba(0, 29, 147, 0.3);
-}
-
-nav {
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  padding: 20px;
-  background-color: rgba(21, 18, 38, 0.7);
-  z-index: 3000;
-  
-}
-
-footer {
-  position:fixed;
-  background-color: red;
-  padding: 0;
-  margin: 0;
-}
-
-/* TAKA UJASNO E AMA GRADIENTA POD NAVBARA E OTDELEN DIV ZASHTOTO NQMA DA STANE FADE OUT GRADIENT
-BOTTOM BORDER A SAMO TAKA GO NAPRAVIHME NE GLEDAI CHE E NAI NEEFIKASNIQ METOD, NO OT GLEDNA TOCHKA 
-NA END USERA NE PRECHI I TOI NE VIJDA MIZERIITE TUK */
-
 .gradient {
   display:flex;
   width: 100%;
@@ -141,7 +83,12 @@ NA END USERA NE PRECHI I TOI NE VIJDA MIZERIITE TUK */
   background-image: linear-gradient(rgba(21, 18, 38, 0.7), rgba(21, 18, 38, 0.0));  
 }
 
-.txt-hmpg {
-  position: absolute;
-  text-align: center;
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient (rgba(12,3,51,0,3), rgba(12,3,51,0.3));
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  
 }
