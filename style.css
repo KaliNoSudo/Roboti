@@ -10,6 +10,7 @@ html {
   text-decoration: none;
   scroll-behavior: smooth;
   font-family: "Cormorant";
+  font-weight: 500;
 }
 
 body {
@@ -141,6 +142,7 @@ nav ul li {
   display: inline-block;
   margin-left: 50px;
   white-space:nowrap;
+  font-weight: 500;
 }
 
 nav ul li a {
@@ -153,118 +155,136 @@ nav ul li a:hover {
   transition: 0.2s;
 }
   /*/////////////////////////////DROPDOWN/////////////////////////*/
- .dropdown {
-  display: inline-block;
-  position: relative;
- }
-.dropdown_content {
-  display: none;
-  position: absolute;
-  left: 15px;
-}
- .dropdown_content li {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
- }
-
-.dropdown:hover .dropdown_content li {
-  display:grid;
-  white-space: nowrap;
-}
-
-.dropdown_content li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 12.5px;
-  white-space: nowrap;
-  font-size: 17.5px;
-}
-
-.dropdown:hover .dropdown_content {
-  display: block;
-}
-
-.dropdown_content li a:hover {
-  color: var(--button-color);
-  transition: 0.2s;
-}
-/*/////////////////////////////ANIMATION/////////////////////////*/
-@keyframes dropbutton1 {
-  from{transform: translateY(-50px);
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Instead of display: none, we hide via opacity and visibility.
+     (Because the element is absolutely positioned it won’t affect layout.) */
+  .dropdown_content {
+    position: absolute;
+    display: block;
+    left: 15px;
+    top: 100%; /* Ensures the menu appears below */
     opacity: 0;
-    pointer-events: none;
-        }
-  to{transform: translateY(0px);
-  opacity: 1;
-  pointer-events: auto;
-    }
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+  }
+  
+  .dropdown_content li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .dropdown_content li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 12.5px;
+    white-space: nowrap;
+    font-size: 17.5px;
+  }
+  
+  .dropdown:hover .dropdown_content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  
+  .dropdown:hover .dropdown_content li {
+    display: block;
+    white-space: nowrap;
+  }
+  
+/*/////////////////////////////ANIMATION/////////////////////////*/
+  @keyframes dropbutton1 {
+    from {transform: translateY(-40px);opacity: 0;pointer-events: none;}
+    to {transform: translateY(0);opacity: 1;pointer-events: auto;}
   }
   @keyframes dropbutton2 {
-    from{transform: translateY(-40px);
-      opacity: 0;
-      pointer-events: none;
-        }
-    to{transform: translateY(0px);
-    opacity: 1;
-    pointer-events: auto;
-      }
-    }
-    @keyframes dropbutton3 {
-      from{transform: translateY(-30px);
-        opacity: 0;
-        pointer-events: none;
-          }
-      to{transform: translateY(0px);
-      opacity: 1;
-      pointer-events: auto;
-        }
-      }
-      @keyframes dropbutton4 {
-        from{transform: translateY(-20px);
-          opacity: 0;
-          pointer-events: none;
-            }
-        to{transform: translateY(0px);
-        opacity: 1;
-        pointer-events: auto;
-          }
-        }
-            
-.dropbutt1 {
-  opacity: 0;
-  animation-name: dropbutton1;
-  animation-duration: 0.7s;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
-}
-.dropbutt2 {
-  opacity: 0;
-  animation-name: dropbutton2;
-  animation-duration: 0.7s;
-  animation-delay: 0.35s;
-  animation-fill-mode: both;
-}
-.dropbutt3 {
-  opacity: 0;
-  animation-name: dropbutton3;
-  animation-duration: 0.7s;
-  animation-delay: 0.50s;
-  animation-fill-mode: both;
-}
-.dropbutt4 {
-  opacity: 0;
-  animation-name: dropbutton4;
-  animation-duration: 0.7s;
-  animation-delay: 0.65s;
-  animation-fill-mode: both;
-}
+    from {transform: translateY(-40px);opacity: 0;pointer-events: none;}
+    to {transform: translateY(0);opacity: 1;pointer-events: auto;}
+  }
+  @keyframes dropbutton3 {
+    from {transform: translateY(-30px);opacity: 0;pointer-events: none;}
+    to {transform: translateY(0);opacity: 1;pointer-events: auto;}
+  }
+  /* A slightly more complex animation for the fourth button */
+  @keyframes dropbutton4 {
+    33% {transform: translateY(-20px);opacity: 0;pointer-events: none;}
+    66% {transform: translateY(10px);pointer-events: auto;}
+    100% {transform: translateY(0px);opacity: 1;}
+  }
+  
+  /* REVERSE ANIMATIONS – sliding out */
+  @keyframes dropbutton1Reverse {
+    from {transform: translateY(0);opacity: 1;pointer-events: auto;}
+    to {transform: translateY(-40px);opacity: 0;pointer-events: none;}
+  }
+  @keyframes dropbutton2Reverse {
+    from {transform: translateY(0);opacity: 1;pointer-events: auto;}
+    to {transform: translateY(-40px);opacity: 0;pointer-events: none;}
+  }
+  @keyframes dropbutton3Reverse {
+    from {transform: translateY(0); opacity: 1; pointer-events: auto;}
+    to {transform: translateY(-30px); opacity: 0; pointer-events: none;}
+  }
+  @keyframes dropbutton4Reverse {
+    0% {transform: translateY(0px);opacity: 1;}
+    33% {transform: translateY(10px);}
+    66% {transform: translateY(-20px);}
+    100% {transform: translateY(-40px);opacity: 0;}
+  }
+  .dropdown:hover .dropbutt1 {
+    opacity: 0;
+    animation: dropbutton1 0.4s forwards;
+    animation-delay: 0.1s;
+  }
+
+  .dropdown:hover .dropbutt2 {
+    opacity: 0;
+    animation: dropbutton2 0.4s forwards;
+    animation-delay: 0.2s;
+  }
+
+  .dropdown:hover .dropbutt3 {
+    opacity: 0;
+    animation: dropbutton3 0.4s forwards;
+    animation-delay: 0.3s;
+  }
+
+  .dropdown:hover .dropbutt4 {
+    opacity: 0;
+    animation: dropbutton4 0.4s forwards;
+    animation-delay: 0.4s;
+  }
+  
+  .dropdown:not(:hover) .dropbutt1 {
+    animation: dropbutton1Reverse 0.4s forwards;
+    animation-delay: 0.4s;
+  }
+
+  .dropdown:not(:hover) .dropbutt2 {
+    animation: dropbutton2Reverse 0.4s forwards;
+    animation-delay: 0.3s;
+  }
+
+  .dropdown:not(:hover) .dropbutt3 {
+    animation: dropbutton3Reverse 0.4s forwards;
+    animation-delay: 0.2s;
+  }
+
+  .dropdown:not(:hover) .dropbutt4 {
+    animation: dropbutton4Reverse 0.4s forwards;
+    animation-delay: 0.1s;
+  }
 /*/////////////////////////////ANIMATION/////////////////////////*/
-  /*/////////////////////////////DROPDOWN/////////////////////////*/
-/*////////////////////////////NAVBAR////////////////////////////*/
-/*///////////////////////////MAIN TEXT///////////////////////////*/
+/*/////////////////////////////DROPDOWN/////////////////////////*/
+/*////////////////////////////NAVBAR///////////////////////////*/
+/*///////////////////////////MAIN TEXT////////////////////////*/
 .content {
   text-align: center;
 }
@@ -292,7 +312,7 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 /*///////////////////////////MAIN TEXT///////////////////////////*/
-/*////////////////////////////VIDEO BACKGROUND///////////////////*/
+/*////////////////////////////VIDEO BACKGROUND//////////////////*/
 @keyframes fadeinvid {
   from{opacity: 0;}
   to{opacity: 1;}
