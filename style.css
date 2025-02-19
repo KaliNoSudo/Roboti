@@ -65,7 +65,7 @@ p {
   padding: 10px;
   transition: transform 0.2s, box-shadow 0.2s; /* Added transition for box-shadow */
   background-color: var(--secondary-color); /* Set background color for product items */
-  color: var(--contrast-color); /* Set text color for product items */
+  color: var(--button-color); /* Set text color for product items */
 }
 
 .product-item:hover {
@@ -149,9 +149,7 @@ nav ul li a {
   font-size: 20px;
 }
   /*/////////////////////////////DROPDOWN/////////////////////////*/
-.dropdown {
   
-}
   /*/////////////////////////////DROPDOWN/////////////////////////*/
 /*////////////////////////////NAVBAR////////////////////////////*/
 /*///////////////////////////MAIN TEXT///////////////////////////*/
