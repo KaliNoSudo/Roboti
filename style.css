@@ -148,6 +148,10 @@ nav ul li a {
   color: #fff;
   font-size: 20px;
 }
+nav ul li a:hover {
+  color:var(--button-color);
+  transition: 0.2s;
+}
   /*/////////////////////////////DROPDOWN/////////////////////////*/
  .dropdown {
   display: inline-block;
@@ -174,45 +178,58 @@ nav ul li a {
   color: white;
   text-decoration: none;
   display: block;
-  padding: 15px;
+  padding: 12.5px;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 17.5px;
 }
 
 .dropdown:hover .dropdown_content {
   display: block;
 }
+
+.dropdown_content li a:hover {
+  color: var(--button-color);
+  transition: 0.2s;
+}
 /*/////////////////////////////ANIMATION/////////////////////////*/
 @keyframes dropbutton1 {
   from{transform: translateY(-50px);
     opacity: 0;
-      }
+    pointer-events: none;
+        }
   to{transform: translateY(0px);
   opacity: 1;
+  pointer-events: auto;
     }
   }
   @keyframes dropbutton2 {
     from{transform: translateY(-40px);
       opacity: 0;
+      pointer-events: none;
         }
     to{transform: translateY(0px);
     opacity: 1;
+    pointer-events: auto;
       }
     }
     @keyframes dropbutton3 {
       from{transform: translateY(-30px);
         opacity: 0;
+        pointer-events: none;
           }
       to{transform: translateY(0px);
       opacity: 1;
+      pointer-events: auto;
         }
       }
       @keyframes dropbutton4 {
         from{transform: translateY(-20px);
           opacity: 0;
+          pointer-events: none;
             }
         to{transform: translateY(0px);
         opacity: 1;
+        pointer-events: auto;
           }
         }
             
