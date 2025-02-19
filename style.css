@@ -2,17 +2,21 @@
   --secondary-color: #151226;
   --button-color: #091235;
 }
-
+@font-face {
+  font-family: Cormorant;
+  src: url("font/Cormorant-VariableFont_wght.ttf");
+}
 html {
   text-decoration: none;
   scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Cormorant";
 }
 
 body {
   margin: 0;
   padding: 0;
 }
+
 p {
   text-align: center;
 }
@@ -47,7 +51,7 @@ p {
 .slider {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory; 
   padding: 20px; /* Added padding to the slider */
   /* Removed background color for the slider */
 }
@@ -75,6 +79,7 @@ p {
 }
 /*/////////////////////////////////////////HOMEPAGE CSS//////////////////////////////////*/
 .hero {
+  padding-top: 80px;
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -90,6 +95,7 @@ p {
   transition: 0.3s;
   filter:invert(1);
 }
+
 .cartimg:hover {
   transform: scale(1.30);
   filter:invert(0.5);
@@ -106,6 +112,12 @@ nav .logo:hover {
   filter:invert(0.5);
 }
 
+@media (max-width: 600px) {
+  nav {
+    padding: 10px 3%;
+  }
+}
+
 nav {
   width: 100vw;
   position: fixed;
@@ -120,21 +132,27 @@ nav {
 
 nav ul {
   display: flex;
+  align-items: center;
   flex-wrap:nowrap;
 }
 
 nav ul li {
   list-style: none;
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 50px;
   white-space:nowrap;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
 }
+  /*/////////////////////////////DROPDOWN/////////////////////////*/
+.dropdown {
+  
+}
+  /*/////////////////////////////DROPDOWN/////////////////////////*/
 /*////////////////////////////NAVBAR////////////////////////////*/
 /*///////////////////////////MAIN TEXT///////////////////////////*/
 .content {
@@ -144,8 +162,8 @@ nav ul li a {
 .content h1 {
   font-size: 10vw;
   color: #fff;
-  font-weight: 600;
-  margin: 0;
+  font-weight: 300;
+  margin:0px;
 }
 
 .content a {
@@ -192,5 +210,3 @@ z-index: -1;
 }
 /*////////////////////////////VIDEO BACKGROUND///////////////////*/
 /*/////////////////////////////////////////HOMEPAGE CSS//////////////////////////////////*/
-/* Ignore this just testing*/
-/* Ignore 2*/

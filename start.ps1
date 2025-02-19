@@ -23,8 +23,7 @@ $baseDirectory = Get-Location
 # Serve files
 while ($listener.IsListening) {
     $context = $listener.GetContext()
-    $response = $context.Responseho
-
+    $response = $context.Response
     # Extract file path from the request URL
     $requestedPath = $context.Request.Url.AbsolutePath
     $filePath = $requestedPath.TrimStart("/")  # Remove leading slash
