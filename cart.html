@@ -6,18 +6,37 @@
     <title>Cart</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="cart-page">
+    <nav>
+        <a href="main.html"><img src="/assets/logo.svg" class="logo"></href>
+        <ul>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <div class="dropdown">
+                    <li><a href="/products/products.html">PRODUCTS</a>
+                    <ul class=dropdown_content>
+                    <li><a href='/products/prodsaka.html' class="dropbutt1">BLAZERS</a></li>
+                    <li><a href="/products/prodrizi.html"class="dropbutt2">SHIRTS</a></li>
+                    <li><a href="/products/prodgashti.html"class="dropbutt3">PANTS</a></li>
+                    <li><a href="/products/prodobuvki.html"class="dropbutt4">SHOES</a></li>
+                </ul>
+            </div>
+            </li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+        </ul>
+    </nav>
     <h1>Your Shopping Cart</h1>
     <div id="cart-items">
-        <!-- Cart items will be dynamically inserted here -->
+        <p>Item 1</p>
+        <p>Item 2</p>
     </div>
     <div class="cart-total">
         <h3>Total: </h3>
+        <div class="cart-actions">
+            <a href="checkout.html"><button class="buttonstyle">Checkout</button></a>
+            <a href="products.html"><button class="buttonstyle">Continue Shopping</button></a>
+        </div>
     </div>
-    <div class="cart-actions">
-        <button onclick="checkout()" class="buttonstyle">Checkout</button>
-        <a href="products.html"><button class="buttonstyle">Continue Shopping</button></a>
-    </div>
+    
 
 </body>
 </html>
