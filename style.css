@@ -303,7 +303,7 @@ border-radius: 50px;
 }
 
 /* Each half container for MEN and WOMEN */
-.men, .women {
+.men, .women{
   position: relative;
   width: 50%;
   height: 100vh;
@@ -339,12 +339,14 @@ border-radius: 50px;
   position: relative;
   z-index: 1;
   margin: 0;
-  line-height: 100vh; /* vertically center the text */
   text-align: center;
   color: white;
   transition: 0.2s;
 }
 
+.container-fm a {
+  align-content: center;
+}
 /* When hovering over a half, zoom its background image */
 .men:hover .background-men, 
 .women:hover .background-women {
@@ -355,6 +357,6 @@ border-radius: 50px;
 .men:hover h1, 
 .women:hover h1 {
   transform: scale(1.1);
-  color: var(--button-color);
+  mix-blend-mode: difference;
   text-decoration: none; /* Ensure no underline appears */
 }
