@@ -200,59 +200,48 @@ nav ul li a:hover {
   }
   
 /*/////////////////////////////ANIMATION/////////////////////////*/
-  @keyframes dropbutton1 {
+  @keyframes dropbutton {
     from {transform: translateY(-40px);opacity: 0;pointer-events: none;}
     to {transform: translateY(0);opacity: 1;pointer-events: auto;}
   }
-  @keyframes dropbutton2 {
-    from {transform: translateY(-40px);opacity: 0;pointer-events: none;}
-    to {transform: translateY(0);opacity: 1;pointer-events: auto;}
-  }
-  @keyframes dropbutton3 {
-    from {transform: translateY(-30px);opacity: 0;pointer-events: none;}
-    to {transform: translateY(0);opacity: 1;pointer-events: auto;}
-  }
-  /* A slightly more complex animation for the fourth button */
   @keyframes dropbutton4 {
     33% {transform: translateY(-20px);opacity: 0;pointer-events: none;}
     66% {transform: translateY(10px);pointer-events: auto;}
     100% {transform: translateY(0px);opacity: 1;}
   }
-  
-  /* REVERSE ANIMATIONS – sliding out */
+  /*dropbutton e za padaneto na purvite 3 kopcheta a dropbutton4 e za padaneto na shoes sus lek bounce*/
+  @keyframes dropbuttonReverse {
+    from {transform: translateY(0);opacity: 1; pointer-events: auto;}
+    to {transform: translateY(-40px);opacity: 0; pointer-events: none;}
+  }
+  /*otdelna animaciq za retracting na kopche 1 zashtoto inache ako e 40px nagore clipva zaradi skorosta na animaciqta*/
   @keyframes dropbutton1Reverse {
-    from {transform: translateY(0);opacity: 1;pointer-events: auto;}
-    to {transform: translateY(-40px);opacity: 0;pointer-events: none;}
+    from {transform: translateY(0);opacity: 1; pointer-events: auto;}
+    to {transform: translateY(-20px);opacity: 0; pointer-events: none;}
   }
-  @keyframes dropbutton2Reverse {
-    from {transform: translateY(0);opacity: 1;pointer-events: auto;}
-    to {transform: translateY(-40px);opacity: 0;pointer-events: none;}
-  }
-  @keyframes dropbutton3Reverse {
-    from {transform: translateY(0); opacity: 1; pointer-events: auto;}
-    to {transform: translateY(-30px); opacity: 0; pointer-events: none;}
-  }
+
+
   @keyframes dropbutton4Reverse {
-    0% {transform: translateY(0px);opacity: 1;}
-    33% {transform: translateY(10px);}
+    33% {transform: translateY(10px); pointer-events: auto;}
     66% {transform: translateY(-20px);}
-    100% {transform: translateY(-40px);opacity: 0;}
+    100% {transform: translateY(-70px);opacity: 0; pointer-events: none;}
   }
+  /*a tuk sa obratnite animacii za pribirane na kopchetat. s reverse playing na stock animaciite ne stavat i dvete*/
   .dropdown:hover .dropbutt1 {
     opacity: 0;
-    animation: dropbutton1 0.4s forwards;
+    animation: dropbutton 0.4s forwards;
     animation-delay: 0.1s;
   }
 
   .dropdown:hover .dropbutt2 {
     opacity: 0;
-    animation: dropbutton2 0.4s forwards;
+    animation: dropbutton 0.4s forwards;
     animation-delay: 0.2s;
   }
 
   .dropdown:hover .dropbutt3 {
     opacity: 0;
-    animation: dropbutton3 0.4s forwards;
+    animation: dropbutton 0.4s forwards;
     animation-delay: 0.3s;
   }
 
@@ -263,22 +252,22 @@ nav ul li a:hover {
   }
   
   .dropdown:not(:hover) .dropbutt1 {
-    animation: dropbutton1Reverse 0.4s forwards;
-    animation-delay: 0.4s;
+    animation: dropbutton1Reverse 0.2s forwards;
+    animation-delay: 0.25s;
   }
 
   .dropdown:not(:hover) .dropbutt2 {
-    animation: dropbutton2Reverse 0.4s forwards;
-    animation-delay: 0.3s;
+    animation: dropbuttonReverse 0.2s forwards;
+    animation-delay: 0.20s;
   }
 
   .dropdown:not(:hover) .dropbutt3 {
-    animation: dropbutton3Reverse 0.4s forwards;
-    animation-delay: 0.2s;
+    animation: dropbuttonReverse 0.2s forwards;
+    animation-delay: 0.15s;
   }
 
   .dropdown:not(:hover) .dropbutt4 {
-    animation: dropbutton4Reverse 0.4s forwards;
+    animation: dropbutton4Reverse 0.2s forwards;
     animation-delay: 0.1s;
   }
 /*/////////////////////////////ANIMATION/////////////////////////*/
