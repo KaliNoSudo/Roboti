@@ -265,7 +265,7 @@ z-index: -1;
 /*/////////////////////////////////////////Cart CSS//////////////////////////////////*/
 #cart-page {
   margin-top: 80px; /* adjust this value as needed */
-  width: 90vw;
+  width: 100vw;
   min-height: 100%;
   position: relative;
   padding: 0px;
@@ -273,20 +273,39 @@ z-index: -1;
   background-image: linear-gradient(rgba(12,3,51,0.3),rgba(12,3,51,0.3));
 }
 
-#cart-items{
+.leftcolumn{
   flex: 50%;
   align-self: flex-start;
 }
+.rightcolumn{
+  flex: 50%;
+  align-self: flex-end;
+  float: right;
+}
+.leftcolumn h1{
+  text-align: right;
+  margin-right: 11vw;
 
-.cart-total{
-  text-align: center;
-  min-height: 85vh;
+}
+#cart-row{
+  justify-self: right  ;
+
+  width: 40vw;
+  min-height: 60vh;
   overflow: visible;
   background-color: rgb(66, 68, 76);
   border-radius: 10%;
-  flex: 50%;
-  float: left;
+
 }
+#payoption{
+  justify-self: center;
+  justify-items: center;
+  width: 30vw;
+  min-height: 60vh;
+  background-color: rgb(66, 68, 76);
+  border-radius: 10%;
+}
+
 .buttonstyle{
 padding: 0.5vw 2vw;
 border: 2px solid #fff;
