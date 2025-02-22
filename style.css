@@ -219,6 +219,7 @@ nav ul li a:hover {
   color: #fff;
   font-weight: 300;
   margin:0px;
+  padding: 0;
 }
 
 .content a {
@@ -231,6 +232,12 @@ nav ul li a:hover {
   border-radius: 50px;
   text-align: center;
   transition: 0.3s;
+}
+.content p {
+  font-size: 1.5vw;
+  padding:0;
+  margin:0;
+  transform:translateY(-1.5vw);
 }
 .content a:hover {
   background-color:var(--button-color);
@@ -264,9 +271,11 @@ z-index: -1;
 }
 /*/////////////////////////////////////////Cart CSS//////////////////////////////////*/
 #cart-page {
-  margin-top: 80px; /* adjust this value as needed */
-  width: 100vw;
-  min-height: 100%;
+  margin-top: 100px; /* adjust this value as needed */
+  width: 90%;
+  
+  border: 1px solid #000;
+  border-radius: 8%;
   position: relative;
   padding: 0px;
   display: flex;
@@ -289,12 +298,11 @@ z-index: -1;
 }
 #cart-row{
   justify-self: right  ;
-
+  align-self: flex-start;
   width: 40vw;
   min-height: 60vh;
-  overflow: visible;
-  box-shadow: #151226 0px 0px 10px;
-  border-radius: 10%;
+
+
 
 }
 #payoption{
@@ -303,7 +311,7 @@ z-index: -1;
   width: 30vw;
   min-height: 85vh;
   background-color: rgb(231, 234, 243);
-  box-shadow: #151226 0px 0px 10px;
+  box-shadow: #151226 0px 0px 30px;
   border-radius: 7%;
 }
 
@@ -360,6 +368,7 @@ border-radius: 50px;
 /* Center the text and ensure it sits above the image */
 .men h1, 
 .women h1 {
+  font-size: 2.5vw;
   position: relative;
   z-index: 1;
   margin: 0;
