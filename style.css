@@ -270,29 +270,34 @@ backdrop-filter: blur(10px);
 z-index: -1;
 }
 /*/////////////////////////////////////////Cart CSS//////////////////////////////////*/
-#cart-page {
-background-image: url(https://static.vecteezy.com/system/resources/previews/031/210/536/non_2x/cozy-cafe-bistro-with-blurred-background-and-wooden-montage-generative-ai-photo.jpg);
-filter: blur(30%);
-z-index: -1;
+
+#navcart{
+background-color: rgba(7, 3, 29, 0.6);
+position: absolute;
+
+
+
 }
 #cart-container{
-  margin-top: 100px; /* adjust this value as needed */
   display: flex;
-  background-image: linear-gradient(rgba(40, 40, 40, 0.92),rgba(41, 41, 41, 0.95));
-  box-shadow: #151226 0px 0px 7px;
-  width: 98%;
+  background-color: #e4e4e4;
+  box-shadow: #828282 0px 0px 8px;
+  width:100%;
+  height: 100vh;
   justify-self: center;
-  border-radius: 50px;
   position: relative;
   padding: 0px;
 
 }
 
 .leftcolumn{
+  margin-top: 100px;
   flex: 50%;
   align-self: flex-start;
 }
 .rightcolumn{
+  margin-top: 110px;
+
   flex: 50%;
   align-self: flex-end;
   float: right;
@@ -307,6 +312,9 @@ z-index: -1;
   align-self: flex-start;
   width: 40vw;
   min-height: 60vh;
+  background-color: #efeeee;
+  box-shadow: #828282 0px 0px 8px;
+  border-radius: 5px;
 
 
 
@@ -315,10 +323,10 @@ z-index: -1;
   justify-self: center;
   justify-items: center;
   width: 40vw;
-  min-height: 85vh;
-  background-color: rgb(24, 24, 28);
-  box-shadow: #151226 0px 0px 7px;
-  border-radius: 50px;
+  min-height: 80vh;
+  background-color: #efeeee;
+  box-shadow: #828282 0px 0px 8px;
+  border-radius: 5px;
 }
 .cart-actions{
 display: inline-flex;
@@ -326,7 +334,7 @@ align-self: end;
 }
 .buttonstyle{
   text-decoration: none;
-  color: black;
+  color: rgb(67, 64, 64);
   font-size: 1.5vw;
   border: 2px solid #fff;
   padding: 7px 1.5vw;
@@ -334,11 +342,11 @@ align-self: end;
   margin:15px;
   text-align: center;
   transition: 0.3s;
-}
-/*///////////////////////////////////////////////////////////// doesnt wooooork*/
-.buttonstyle:hover {
-  background-color:var(--button-color);
+
+}.buttonstyle:hover {
+  background-color: #505073;
   transform: scale(1.1);
+  cursor: pointer;
 }
 /*/////////////////////////////////////////Products////////////////////*/
 .container-fm {
@@ -412,4 +420,13 @@ align-self: end;
   transform: scale(1.1);
   mix-blend-mode: difference;
   text-decoration: none; /* Ensure no underline appears */
+}
+/*/////////////////////PRODUCTS//////////////////*/
+.gashtim nav{ 
+  border-bottom:3px solid white;
+}
+.gashtim {
+  width: 100vw;
+  height: 100vh;
+  background:#242424;
 }
