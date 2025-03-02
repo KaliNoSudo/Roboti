@@ -270,51 +270,46 @@ backdrop-filter: blur(10px);
 z-index: -1;
 }
 /*/////////////////////////////////////////Cart CSS//////////////////////////////////*/
-#Upper{
-margin-top: 18vh;
-display: flex;
-flex-direction: column;
-height: auto;
-z-index: 1000;
 
-
-}
 
 #navcart{
   background-color: rgba(7, 3, 29, 0.6);
+  width: 100vw;
+  position: static;
+}
 
+
+
+#cart-container{
+  display: flex;
+  flex-direction: column;
+  background-color: #e4e4e4;
+  box-shadow: #828282 0px 0px 8px;
+
+  justify-self: center;
+  position: relative;
+  padding: 0px;
+  z-index: 1;
 }
 
 #H1SHOP{
   text-align: center;
-  border: #d12929 solid;
-  width: 100%;
+  width: 100vw;
   height: 50px;
 }
-
-#cart-container{
-
+#columns{
   display: flex;
-  background-color: #e4e4e4;
-  box-shadow: #828282 0px 0px 8px;
-  width:100%;
-  height: auto;
-  justify-self: center;
-  position: relative;
-  padding: 0px;
+  flex-direction: row;
+  
 
 
 }
-
-
 .leftcolumn{
   flex: 50%;
-  justify-self: center;
-  align-self: center;
-  border: #bb1414 solid;
+  
 }
 
-#cart-row{
+.leftcolumn #cart-row{
   justify-self: right  ;
   align-self: flex-start;
   width: 40vw;
@@ -327,13 +322,11 @@ z-index: 1000;
 
 .rightcolumn{
   flex: 50%;
-  border: #bb1414 solid;
-  align-self: center;
-  float: right;
-
+  justify-self: center;
+  
 }
 
-#payoption{
+.rightcolumn #payoption{
   justify-self: center;
   justify-items: center;
   width: 40vw;
@@ -342,7 +335,7 @@ z-index: 1000;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
 }
-.cart-actions{
+.rightcolumn .cart-actions{
 display: inline-flex;
 align-self: end;
 }
