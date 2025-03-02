@@ -270,43 +270,50 @@ backdrop-filter: blur(10px);
 z-index: -1;
 }
 /*/////////////////////////////////////////Cart CSS//////////////////////////////////*/
-
-#navcart{
-background-color: rgba(7, 3, 29, 0.6);
-position: absolute;
-
+#Upper{
+margin-top: 18vh;
+display: flex;
+flex-direction: column;
+height: auto;
+z-index: 1000;
 
 
 }
+
+#navcart{
+  background-color: rgba(7, 3, 29, 0.6);
+
+}
+
+#H1SHOP{
+  text-align: center;
+  border: #d12929 solid;
+  width: 100%;
+  height: 50px;
+}
+
 #cart-container{
+
   display: flex;
   background-color: #e4e4e4;
   box-shadow: #828282 0px 0px 8px;
   width:100%;
-  height: 100vh;
+  height: auto;
   justify-self: center;
   position: relative;
   padding: 0px;
 
+
 }
+
 
 .leftcolumn{
-  margin-top: 100px;
   flex: 50%;
-  align-self: flex-start;
+  justify-self: center;
+  align-self: center;
+  border: #bb1414 solid;
 }
-.rightcolumn{
-  margin-top: 110px;
 
-  flex: 50%;
-  align-self: flex-end;
-  float: right;
-}
-.leftcolumn h1{
-  text-align: right;
-  margin-right: 11vw;
-
-}
 #cart-row{
   justify-self: right  ;
   align-self: flex-start;
@@ -316,14 +323,21 @@ position: absolute;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
 
+}
 
+.rightcolumn{
+  flex: 50%;
+  border: #bb1414 solid;
+  align-self: center;
+  float: right;
 
 }
+
 #payoption{
   justify-self: center;
   justify-items: center;
   width: 40vw;
-  min-height: 80vh;
+  min-height: 60vh;
   background-color: #efeeee;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
