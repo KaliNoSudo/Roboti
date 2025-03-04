@@ -319,12 +319,12 @@ z-index: -1;
   justify-self: center;
   justify-items: center;
   align-self: center;
-  width: 40vw;
-  min-height: 60vh;
+  width: 42vw;
+  min-height: 70vh;
   background-color: #efeeee;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
-
+  float: right;
 }
 
 .rightcolumn{
@@ -339,23 +339,21 @@ z-index: -1;
   justify-items: center;
   align-content: flex-end;
 
-  width: 40vw;
-  min-height: 60vh;
+  width: 32vw;
+  min-height: 77vh;
   background-color: #efeeee;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
-  border: red solid;
 
 
 }
 .rightcolumn #payoption .cart-actions{
-  border: red solid;
-
+  text-align: center;
 }
 .buttonstyle{
   text-decoration: none;
   color: rgb(67, 64, 64);
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   border: 2px solid #fff;
   padding: 7px 1.5vw;
   border-radius: 50px;
