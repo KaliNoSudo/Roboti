@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --secondary-color: #151226;
   --button-color: #091235;
@@ -281,15 +286,18 @@ z-index: -1;
 
 
 #cart-container{
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: #e4e4e4;
   box-shadow: #828282 0px 0px 8px;
-
+  min-height: 100vh;
   justify-self: center;
   position: relative;
   padding: 0px;
   z-index: 1;
+
+
 }
 
 #H1SHOP{
@@ -300,18 +308,17 @@ z-index: -1;
 #columns{
   display: flex;
   flex-direction: row;
-  
-
 
 }
 .leftcolumn{
-  flex: 50%;
+  flex: 1;
   
 }
 
 .leftcolumn #cart-row{
-  justify-self: right  ;
-  align-self: flex-start;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
   width: 40vw;
   min-height: 60vh;
   background-color: #efeeee;
@@ -321,23 +328,25 @@ z-index: -1;
 }
 
 .rightcolumn{
-  flex: 50%;
-  justify-self: center;
+  flex: 1;
+ 
   
 }
 
 .rightcolumn #payoption{
   justify-self: center;
   justify-items: center;
+  align-self: center;
   width: 40vw;
   min-height: 60vh;
   background-color: #efeeee;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
+
 }
-.rightcolumn .cart-actions{
-display: inline-flex;
-align-self: end;
+.rightcolumn #payoption .cart-actions{
+  justify-self: center;
+  justify-items: center;
 }
 .buttonstyle{
   text-decoration: none;
