@@ -335,18 +335,22 @@ z-index: -1;
 
 .rightcolumn #payoption{
   justify-self: center;
-  justify-items: center;
   align-self: center;
+  justify-items: center;
+  align-content: flex-end;
+
   width: 40vw;
   min-height: 60vh;
   background-color: #efeeee;
   box-shadow: #828282 0px 0px 8px;
   border-radius: 5px;
+  border: red solid;
+
 
 }
 .rightcolumn #payoption .cart-actions{
-  justify-self: center;
-  justify-items: center;
+  border: red solid;
+
 }
 .buttonstyle{
   text-decoration: none;
