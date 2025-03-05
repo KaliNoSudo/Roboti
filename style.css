@@ -79,8 +79,7 @@ nav {
 }
 
 nav ul {
-  padding: 0px 45px;
- 
+  padding: 0px 50px;
   display: flex;
   align-items: center;
   flex-wrap:nowrap;
