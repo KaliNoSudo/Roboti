@@ -67,15 +67,20 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 20px 3%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 60px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   z-index: 1000;
+   
 }
 
 nav ul {
+  padding: 0px 45px;
+ 
   display: flex;
   align-items: center;
   flex-wrap:nowrap;
@@ -281,6 +286,8 @@ z-index: -1;
   background-color: rgba(7, 3, 29, 0.6);
   width: 100vw;
   position: static;
+  
+
 }
 
 
@@ -303,7 +310,7 @@ z-index: -1;
 #H1SHOP{
   text-align: center;
   width: 100vw;
-  height: 50px;
+  height: 70px;
 }
 #columns{
   display: flex;
