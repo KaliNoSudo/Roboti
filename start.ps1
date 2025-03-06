@@ -1,6 +1,6 @@
-# Set up the HTTP listener on port 80
+# Set up the HTTP listener on port 8081
 $listener = New-Object System.Net.HttpListener
-$listener.Prefixes.Add("http://+:8081/")  # Listen on port 8080
+$listener.Prefixes.Add("http://+:8081/")  # Listen on port 8081
 $listener.Start()
 Write-Host "Listening on http://+:8081/"
 
@@ -14,60 +14,111 @@ $mimeTypes = @{
     ".png"  = "image/png"
     ".gif"  = "image/gif"
     ".txt"  = "text/plain; charset=UTF-8"
-    # Add more types as needed
+    ".mp4"  = "video/mp4"
+    ".svg"  = "image/svg+xml"
+    ".ico"  = "image/x-icon"
 }
 
-# Define the directory from which to serve files (current directory)
+# Define the base directory (adjust if your files are stored elsewhere)
 $baseDirectory = Get-Location
+Write-Host "Base directory: $baseDirectory"
 
-# Serve files
+# Serve files continuously
 while ($listener.IsListening) {
-    $context = $listener.GetContext()
-    $response = $context.Response
-    # Extract file path from the request URL
-    $requestedPath = $context.Request.Url.AbsolutePath
-    $filePath = $requestedPath.TrimStart("/")  # Remove leading slash
+    try {
+        $context = $listener.GetContext()
+        $request = $context.Request
+        $response = $context.Response
 
-    # Handle the case when no file is requested (default to 'main.html')
-    if ($filePath -eq "") {
-        $filePath = "main.html"  # Default file if no file is requested
-    }
+        # Get and URL decode the requested path to handle spaces correctly
+        $requestedPath = $request.Url.AbsolutePath
+        $filePath = [System.Net.WebUtility]::UrlDecode($requestedPath.TrimStart("/"))
 
-    # Combine the base directory with the requested file path
-    $fullPath = Join-Path $baseDirectory $filePath
-
-    # Check if the file exists
-    if (Test-Path $fullPath) {
-        # Get the file extension
-        $fileExtension = [System.IO.Path]::GetExtension($filePath).ToLower()
-
-        # Set content type based on the file extension
-        if ($mimeTypes.ContainsKey($fileExtension)) {
-            $response.ContentType = $mimeTypes[$fileExtension]
-        } else {
-            $response.ContentType = "application/octet-stream"  # Default for unknown file types
+        # Default file if none is specified
+        if ([string]::IsNullOrEmpty($filePath)) {
+            $filePath = "main.html"
         }
 
-        # Read and serve the file content
-        if ($fileExtension -eq ".html" -or $fileExtension -eq ".txt") {
-            # Read the text files as UTF-8
-            $buffer = [System.Text.Encoding]::UTF8.GetBytes((Get-Content -Path $fullPath -Raw -Encoding UTF8))  # Read as UTF-8
-        } else {
-            # For binary files (like images)
-            $buffer = [System.IO.File]::ReadAllBytes($fullPath)
+        # Combine base directory with the requested file path
+        $fullPath = Join-Path $baseDirectory $filePath
+        Write-Host "Requested file path: $fullPath"
+
+        if (Test-Path $fullPath) {
+            # Set the Content-Type header based on file extension
+            $fileExtension = [System.IO.Path]::GetExtension($filePath).ToLower()
+            if ($mimeTypes.ContainsKey($fileExtension)) {
+                $response.ContentType = $mimeTypes[$fileExtension]
+            } else {
+                $response.ContentType = "application/octet-stream"
+            }
+
+            # Read file contents (text or binary)
+            if ($fileExtension -eq ".html" -or $fileExtension -eq ".txt") {
+                $content = Get-Content -Path $fullPath -Raw -Encoding UTF8
+                $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
+            } else {
+                $buffer = [System.IO.File]::ReadAllBytes($fullPath)
+            }
+
+            # Check for a Range header
+            $rangeHeader = $request.Headers["Range"]
+            if ($rangeHeader) {
+                $range = $rangeHeader -replace "bytes=", ""
+                $rangeValues = $range.Split("-")
+                $start = if ($rangeValues[0] -ne "") { [int]$rangeValues[0] } else { 0 }
+                if ($rangeValues.Length -gt 1 -and $rangeValues[1] -ne "") {
+                    $end = [int]$rangeValues[1]
+                } else {
+                    $end = $buffer.Length - 1
+                }
+
+                if ($start -gt $end -or $end -ge $buffer.Length) {
+                    $response.StatusCode = 416
+                    $response.AddHeader("Content-Range", "bytes */$($buffer.Length)")
+                    $errorMsg = "Requested Range Not Satisfiable"
+                    $errorBytes = [System.Text.Encoding]::UTF8.GetBytes($errorMsg)
+                    $response.ContentLength64 = $errorBytes.Length
+                    $response.OutputStream.Write($errorBytes, 0, $errorBytes.Length)
+                }
+                else {
+                    $length = $end - $start + 1
+                    $response.StatusCode = 206
+                    $response.AddHeader("Content-Range", "bytes $start-$end/$($buffer.Length)")
+                    $response.ContentLength64 = $length
+                    $response.OutputStream.Write($buffer, $start, $length)
+                }
+            }
+            else {
+                # No Range header: serve the entire file
+                $response.ContentLength64 = $buffer.Length
+                $response.OutputStream.Write($buffer, 0, $buffer.Length)
+            }
         }
-
-        # Set the content length and send the response
-        $response.ContentLength64 = $buffer.Length
-        $response.OutputStream.Write($buffer, 0, $buffer.Length)
-    } else {
-        # If the file doesn't exist, return 404
-        $response.StatusCode = 404
-        $response.ContentType = "text/plain"
-        $buffer = [System.Text.Encoding]::UTF8.GetBytes("404 - File Not Found")
-        $response.ContentLength64 = $buffer.Length
-        $response.OutputStream.Write($buffer, 0, $buffer.Length)
+        else {
+            # File not found
+            $response.StatusCode = 404
+            $response.ContentType = "text/plain"
+            $notFoundMsg = "404 - File Not Found: $filePath"
+            Write-Host $notFoundMsg
+            $buffer = [System.Text.Encoding]::UTF8.GetBytes($notFoundMsg)
+            $response.ContentLength64 = $buffer.Length
+            $response.OutputStream.Write($buffer, 0, $buffer.Length)
+        }
+        $response.OutputStream.Close()
     }
-
-    $response.OutputStream.Close()
+    catch {
+        Write-Host "Error: $_"
+        try {
+            $response.StatusCode = 500
+            $response.ContentType = "text/plain"
+            $errorMsg = "500 - Internal Server Error"
+            $buffer = [System.Text.Encoding]::UTF8.GetBytes($errorMsg)
+            $response.ContentLength64 = $buffer.Length
+            $response.OutputStream.Write($buffer, 0, $buffer.Length)
+            $response.OutputStream.Close()
+        }
+        catch {
+            Write-Host "Error sending 500 response: $_"
+        }
+    }
 }
