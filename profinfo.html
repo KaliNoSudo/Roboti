@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #091235, #151226);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .profile-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .profile-section {
+            background-color: #fff;
+            width: 100%;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .profile-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            align-content: center;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .buttonstyle {
+            display: inline-block;
+            background-color: #5563DE;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .buttonstyle:hover {
+            background-color: #4453c1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Edit Profile Section -->
+        <div class="profile-section" id="edit-profile">
+            <h2>Edit Profile</h2>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Enter last name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="edit-password">New Password</label>
+                    <input type="password" id="edit-password" placeholder="Enter new password">
+                </div>
+                <button type="submit" class="buttonstyle">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Profile Info Section -->
+        <div class="profile-section" id="profile-info">
+            <h2>Profile Info</h2>
+            <p><strong>Username:</strong> user_example</p>
+            <p><strong>Email:</strong> user@example.com</p>
+            <p><strong>Member Since:</strong> January 2025</p>
+        </div>
+
+        <!-- Profile Purchases Section -->
+        <div class="profile-section" id="profile-purchases">
+            <h2>Profile Purchases</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purchase ID</th>
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#001</td>
+                        <td>2025-02-15</td>
+                        <td>Product A</td>
+                        <td>$29.99</td>
+                    </tr>
+                    <tr>
+                        <td>#002</td>
+                        <td>2025-03-10</td>
+                        <td>Product B</td>
+                        <td>$49.99</td>
+                    </tr>
+                    <!-- ... more purchases if needed ... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
