@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="productsbody">
+    <div class="container">
+        <nav>
+        <div class="titleblock">
+        <a href="main.html"><img src="/assets/logo.svg" class="logo"><p>PODVIG</p></href>
+        </div>
+            <ul>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="contacts.html">CONTACTS</a></li>
+                <li><a href="cart.html"><img src="/assets/cart.svg" class="cartimg"></a></li>
+            </ul>
+    </nav>
+        <div class="listProduct">
+
+        </div>
+    </div>
+</div>
+    
+
+    <script>
+        let products = null;
+        // get datas from file json
+        fetch('products.json')
+            .then(response => response.json())
+            .then(data => {
+                products = data;
+                addDataToHTML();
+        })
+
+        function addDataToHTML(){
+    // remove datas default from HTML
+        let listProductHTML = document.querySelector('.listProduct');
+
+        // add new datas
+        if(products != null) // if has data
+        {
+            products.forEach(product => {
+                let newProduct = document.createElement('a');
+                newProduct.href = '/detail.html?id=' + product.id;
+                newProduct.classList.add('item');
+                newProduct.innerHTML = 
+                `<img src="${product.image}" alt="">
+                <h2>${product.name}</h2>
+                <div class="price">$${product.price}</div>`;
+                listProductHTML.appendChild(newProduct);
+
+            });
+        }
+    }
+
+    </script>
+</body>
+</html>
